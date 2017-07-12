@@ -3,6 +3,7 @@ package com.adaptionsoft.games.uglytrivia;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -69,5 +70,35 @@ public class GameTest {
 
         int firstPlayerIndex = 0;
         assertFalse(game.inPenaltyBox[firstPlayerIndex]);
+    }
+
+    @Test
+    public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
+        int firstPlaceIndex = 0;
+        game.add("Vishal");
+        game.currentPlayer = firstPlaceIndex;
+
+        game.wrongAnswer();
+
+        assertTrue(game.inPenaltyBox[firstPlaceIndex]);
+    }
+
+    @Test
+    public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
+        game.add("Vishal");
+        game.add("David");
+
+        game.wrongAnswer();
+
+        assertThat(game.currentPlayer, is(1));
+    }
+
+    @Test
+    public void shouldNotIncreaseCurrentPlayerIfThereIsOnlyOnePlayer() {
+        game.add("Vishal");
+
+        game.wrongAnswer();
+
+        assertThat(game.currentPlayer, is(0));
     }
 }
