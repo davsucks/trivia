@@ -12,7 +12,9 @@ import static org.junit.Assert.assertThat;
 public class GameTest {
 
     private Game game;
-    private final int firstPlayerIndex = 0;
+
+    private final int FIRST_PLAYER_INDEX = 0;
+    private final int MAX_NUMBER_OF_SPACES = 11;
 
     @Before
     public void given() throws Exception {
@@ -53,31 +55,31 @@ public class GameTest {
     public void shouldStartPlayerFromPlaceZero() {
         game.add("Vishal");
 
-        assertThat(game.places[firstPlayerIndex], is(0));
+        assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
     }
 
     @Test
     public void shouldStartPlayerWithEmptyPurse() {
         game.add("Vishal");
 
-        assertEquals(game.purses[firstPlayerIndex], 0);
+        assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
     }
 
     @Test
     public void shouldStartPlayerOutsideOfPenaltyBox() {
         game.add("Vishal");
 
-        assertFalse(game.inPenaltyBox[firstPlayerIndex]);
+        assertFalse(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
     }
 
     @Test
     public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
         game.add("Vishal");
-        game.currentPlayer = firstPlayerIndex;
+        game.currentPlayer = FIRST_PLAYER_INDEX;
 
         game.wrongAnswer();
 
-        assertTrue(game.inPenaltyBox[firstPlayerIndex]);
+        assertTrue(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
     }
 
     @Test
@@ -105,6 +107,15 @@ public class GameTest {
 
         game.roll(2);
 
-        assertThat(game.places[firstPlayerIndex], is(2));
+        assertThat(game.places[FIRST_PLAYER_INDEX], is(2));
+    }
+
+    @Test
+    public void shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces() {
+        game.add("Vishal");
+
+        game.roll(MAX_NUMBER_OF_SPACES + 1);
+
+        assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
     }
 }
