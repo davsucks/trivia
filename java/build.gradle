@@ -9,7 +9,9 @@ description = """"""
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
 
-
+dependencies {
+     testCompile 'de.bechte.junit:junit-hierarchicalcontextrunner:4.12.1'
+}
 
 repositories {
      maven { url "http://repo.maven.apache.org/maven2" }
