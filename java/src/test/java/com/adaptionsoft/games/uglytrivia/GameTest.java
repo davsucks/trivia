@@ -40,37 +40,33 @@ public class GameTest {
     }
 
     public class WithOnePlayer {
+        @Before
+        public void setup() {
+            game.add("Vishal");
+        }
+
         @Test
         public void shouldHaveOnePlayer() {
-            game.add("David");
-
             assertThat(game.howManyPlayers(), is(1));
         }
 
         @Test
         public void shouldStartPlayerFromPlaceZero() {
-            game.add("Vishal");
-
             assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
         }
 
         @Test
         public void shouldStartPlayerWithEmptyPurse() {
-            game.add("Vishal");
-
             assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
         }
 
         @Test
         public void shouldStartPlayerOutsideOfPenaltyBox() {
-            game.add("Vishal");
-
             assertFalse(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
         }
 
         @Test
         public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
-            game.add("Vishal");
             game.currentPlayer = FIRST_PLAYER_INDEX;
 
             game.wrongAnswer();
@@ -80,8 +76,6 @@ public class GameTest {
 
         @Test
         public void shouldNotIncreaseCurrentPlayerIfThereIsOnlyOnePlayer() {
-            game.add("Vishal");
-
             game.wrongAnswer();
 
             assertThat(game.currentPlayer, is(0));
@@ -89,8 +83,6 @@ public class GameTest {
 
         @Test
         public void shouldMovePlayerToNewPlace() {
-            game.add("Vishal");
-
             game.roll(2);
 
             assertThat(game.places[FIRST_PLAYER_INDEX], is(2));
@@ -98,8 +90,6 @@ public class GameTest {
 
         @Test
         public void shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces() {
-            game.add("Vishal");
-
             game.roll(MAX_NUMBER_OF_SPACES + 1);
 
             assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
@@ -108,20 +98,19 @@ public class GameTest {
     }
 
     public class WithTwoPlayers {
+        @Before
+        public void setUpTwoPlayers() {
+            game.add("Vishal");
+            game.add("David");
+        }
 
         @Test
         public void shouldHaveTwoPlayers() {
-            game.add("David");
-            game.add("Vishal");
-
             assertThat(game.howManyPlayers(), is(2));
         }
 
         @Test
         public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
-            game.add("Vishal");
-            game.add("David");
-
             game.wrongAnswer();
 
             assertThat(game.currentPlayer, is(1));
