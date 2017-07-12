@@ -12,6 +12,7 @@ import static org.junit.Assert.assertThat;
 public class GameTest {
 
     private Game game;
+    private final int firstPlayerIndex = 0;
 
     @Before
     public void given() throws Exception {
@@ -52,7 +53,6 @@ public class GameTest {
     public void shouldStartPlayerFromPlaceZero() {
         game.add("Vishal");
 
-        int firstPlayerIndex = 0;
         assertThat(game.places[firstPlayerIndex], is(0));
     }
 
@@ -60,7 +60,6 @@ public class GameTest {
     public void shouldStartPlayerWithEmptyPurse() {
         game.add("Vishal");
 
-        int firstPlayerIndex = 0;
         assertEquals(game.purses[firstPlayerIndex], 0);
     }
 
@@ -68,19 +67,17 @@ public class GameTest {
     public void shouldStartPlayerOutsideOfPenaltyBox() {
         game.add("Vishal");
 
-        int firstPlayerIndex = 0;
         assertFalse(game.inPenaltyBox[firstPlayerIndex]);
     }
 
     @Test
     public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
-        int firstPlaceIndex = 0;
         game.add("Vishal");
-        game.currentPlayer = firstPlaceIndex;
+        game.currentPlayer = firstPlayerIndex;
 
         game.wrongAnswer();
 
-        assertTrue(game.inPenaltyBox[firstPlaceIndex]);
+        assertTrue(game.inPenaltyBox[firstPlayerIndex]);
     }
 
     @Test
@@ -100,5 +97,14 @@ public class GameTest {
         game.wrongAnswer();
 
         assertThat(game.currentPlayer, is(0));
+    }
+
+    @Test
+    public void shouldMovePlayerToNewPlace() {
+        game.add("Vishal");
+
+        game.roll(2);
+
+        assertThat(game.places[firstPlayerIndex], is(2));
     }
 }
