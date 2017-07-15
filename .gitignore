@@ -2,6 +2,3 @@
 # in a .gitignore file inside the root folder
 # of that language. See Scala/.gitignore for
 # an example. Thanks.
-
-*/.idea
-*.iml
