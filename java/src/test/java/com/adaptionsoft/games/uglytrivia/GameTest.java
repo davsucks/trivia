@@ -34,87 +34,143 @@ public class GameTest {
         assertEquals(game.rockQuestions.size(), 50);
     }
 
-    @Test
-    public void shouldHaveZeroPlayers() {
-        assertThat(game.howManyPlayers(), is(0));
+    public class HowManyPlayers {
+        @Test
+        public void shouldHaveZeroPlayers() {
+            assertThat(game.howManyPlayers(), is(0));
+        }
+
+        public class WithOnePlayer {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+            }
+
+            @Test
+            public void shouldHaveOnePlayer() {
+                assertThat(game.howManyPlayers(), is(1));
+            }
+
+        }
+
+        public class WithTwoPlayers {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+                game.add("David");
+            }
+
+            @Test
+            public void shouldHaveTwoPlayers() {
+                assertThat(game.howManyPlayers(), is(2));
+            }
+        }
     }
 
-    public class WithOnePlayer {
-        @Before
-        public void setup() {
-            game.add("Vishal");
+    public class Roll {
+        public class WithOnePlayer {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+            }
+
+            @Test
+            public void shouldMovePlayerToNewPlace() {
+                game.roll(2);
+
+                assertThat(game.places[FIRST_PLAYER_INDEX], is(2));
+            }
+
+            @Test
+            public void shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces() {
+                game.roll(MAX_NUMBER_OF_SPACES + 1);
+
+                assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
+            }
         }
-
-        @Test
-        public void shouldHaveOnePlayer() {
-            assertThat(game.howManyPlayers(), is(1));
-        }
-
-        @Test
-        public void shouldStartPlayerFromPlaceZero() {
-            assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
-        }
-
-        @Test
-        public void shouldStartPlayerWithEmptyPurse() {
-            assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
-        }
-
-        @Test
-        public void shouldStartPlayerOutsideOfPenaltyBox() {
-            assertFalse(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
-        }
-
-        @Test
-        public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
-            game.currentPlayer = FIRST_PLAYER_INDEX;
-
-            game.wrongAnswer();
-
-            assertTrue(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
-        }
-
-        @Test
-        public void shouldNotIncreaseCurrentPlayerIfThereIsOnlyOnePlayer() {
-            game.wrongAnswer();
-
-            assertThat(game.currentPlayer, is(0));
-        }
-
-        @Test
-        public void shouldMovePlayerToNewPlace() {
-            game.roll(2);
-
-            assertThat(game.places[FIRST_PLAYER_INDEX], is(2));
-        }
-
-        @Test
-        public void shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces() {
-            game.roll(MAX_NUMBER_OF_SPACES + 1);
-
-            assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
-        }
-
     }
 
-    public class WithTwoPlayers {
-        @Before
-        public void setUpTwoPlayers() {
-            game.add("Vishal");
-            game.add("David");
+    public class Places {
+       public class WithOnePlayer {
+           @Before
+           public void setup() {
+               game.add("Vishal");
+           }
+
+           @Test
+           public void shouldStartPlayerFromPlaceZero() {
+               assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
+           }
+
+       }
+    }
+
+    public class Purses {
+        public class WithOnePlayer {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+            }
+
+            @Test
+            public void shouldStartPlayerWithEmptyPurse() {
+                assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
+            }
+        }
+    }
+
+    public class InPenaltyBox {
+        public class WithOnePlayer {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+            }
+
+            @Test
+            public void shouldStartPlayerOutsideOfPenaltyBox() {
+                assertFalse(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
+            }
+        }
+    }
+
+    public class WrongAnswer {
+        // TODO: dry this up
+        public class WithOnePlayer {
+            @Before
+            public void setup() {
+                game.add("Vishal");
+            }
+
+            @Test
+            public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
+                game.currentPlayer = FIRST_PLAYER_INDEX;
+
+                game.wrongAnswer();
+
+                assertTrue(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
+            }
+
+            @Test
+            public void shouldNotIncreaseCurrentPlayerIfThereIsOnlyOnePlayer() {
+                game.wrongAnswer();
+
+                assertThat(game.currentPlayer, is(0));
+            }
         }
 
-        @Test
-        public void shouldHaveTwoPlayers() {
-            assertThat(game.howManyPlayers(), is(2));
+        public class WithTwoPlayers {
+            @Before
+            public void setUpTwoPlayers() {
+                game.add("Vishal");
+                game.add("David");
+            }
+
+            @Test
+            public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
+                game.wrongAnswer();
+
+                assertThat(game.currentPlayer, is(1));
+            }
         }
-
-        @Test
-        public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
-            game.wrongAnswer();
-
-            assertThat(game.currentPlayer, is(1));
-        }
-
     }
 }
