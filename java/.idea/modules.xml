@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.iml" filepath="$PROJECT_DIR$/.idea/modules/java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uglytrivia.iml" filepath="$PROJECT_DIR$/.idea/modules/uglytrivia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uglytrivia_main.iml" filepath="$PROJECT_DIR$/.idea/modules/uglytrivia_main.iml" group="uglytrivia" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uglytrivia_test.iml" filepath="$PROJECT_DIR$/.idea/modules/uglytrivia_test.iml" group="uglytrivia" />
     </modules>
   </component>
 </project>
