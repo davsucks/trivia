@@ -2,6 +2,7 @@ package com.adaptionsoft.games.uglytrivia;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,6 +25,23 @@ public class GameTest {
         game = new Game();
     }
 
+    @Ignore("not a test")
+    public class OnePlayerSetup {
+        @Before
+        public void setup() {
+            game.add("Vishal");
+        }
+    }
+
+    @Ignore("not a test")
+    public class TwoPlayerSetup extends OnePlayerSetup {
+        @Before
+        public void setup() {
+            super.setup();
+            game.add("David");
+        }
+    }
+
     @Test
     public void shouldAddFiftyQuestions() {
         Game game = new Game();
@@ -40,12 +58,7 @@ public class GameTest {
             assertThat(game.howManyPlayers(), is(0));
         }
 
-        public class WithOnePlayer {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-            }
-
+        public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldHaveOnePlayer() {
                 assertThat(game.howManyPlayers(), is(1));
@@ -53,13 +66,7 @@ public class GameTest {
 
         }
 
-        public class WithTwoPlayers {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-                game.add("David");
-            }
-
+        public class WithTwoPlayers extends TwoPlayerSetup {
             @Test
             public void shouldHaveTwoPlayers() {
                 assertThat(game.howManyPlayers(), is(2));
@@ -68,12 +75,7 @@ public class GameTest {
     }
 
     public class Roll {
-        public class WithOnePlayer {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-            }
-
+        public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldMovePlayerToNewPlace() {
                 game.roll(2);
@@ -91,12 +93,7 @@ public class GameTest {
     }
 
     public class Places {
-       public class WithOnePlayer {
-           @Before
-           public void setup() {
-               game.add("Vishal");
-           }
-
+       public class WithOnePlayer extends OnePlayerSetup {
            @Test
            public void shouldStartPlayerFromPlaceZero() {
                assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
@@ -106,12 +103,7 @@ public class GameTest {
     }
 
     public class Purses {
-        public class WithOnePlayer {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-            }
-
+        public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldStartPlayerWithEmptyPurse() {
                 assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
@@ -120,12 +112,7 @@ public class GameTest {
     }
 
     public class InPenaltyBox {
-        public class WithOnePlayer {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-            }
-
+        public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldStartPlayerOutsideOfPenaltyBox() {
                 assertFalse(game.inPenaltyBox[FIRST_PLAYER_INDEX]);
@@ -134,13 +121,7 @@ public class GameTest {
     }
 
     public class WrongAnswer {
-        // TODO: dry this up
-        public class WithOnePlayer {
-            @Before
-            public void setup() {
-                game.add("Vishal");
-            }
-
+        public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
                 game.currentPlayer = FIRST_PLAYER_INDEX;
@@ -158,13 +139,7 @@ public class GameTest {
             }
         }
 
-        public class WithTwoPlayers {
-            @Before
-            public void setUpTwoPlayers() {
-                game.add("Vishal");
-                game.add("David");
-            }
-
+        public class WithTwoPlayers extends TwoPlayerSetup {
             @Test
             public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
                 game.wrongAnswer();
