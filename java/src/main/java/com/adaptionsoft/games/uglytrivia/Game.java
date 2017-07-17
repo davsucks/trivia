@@ -153,7 +153,7 @@ public class Game {
 		return !(purses[currentPlayer] == 6);
 	}
 
-	private void printLine(String x) {
-		System.out.println(x);
+	private void printLine(String lineToPrint) {
+		printer.printLine(lineToPrint);
 	}
 }
