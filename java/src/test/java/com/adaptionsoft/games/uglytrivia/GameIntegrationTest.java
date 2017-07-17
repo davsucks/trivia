@@ -86,19 +86,17 @@ public class GameIntegrationTest {
     public class Roll {
         public class WithOnePlayer extends OnePlayerSetup {
             @Test
-            @Ignore("Going to inject player into add to make this testable")
             public void shouldMovePlayerToNewPlace() {
                 game.roll(2);
 
-//                assertThat(game.places[FIRST_PLAYER_INDEX], is(2));
+                assertThat(vishal.getCurrentPlace(), is(2));
             }
 
             @Test
-            @Ignore("Going to inject player into add to make this testable")
             public void shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces() {
                 game.roll(MAX_NUMBER_OF_SPACES + 1);
 
-//                assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
+                assertThat(vishal.getCurrentPlace(), is(0));
             }
 
             @Test
