@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-    ArrayList players = new ArrayList();
+    private ArrayList<String> players = new ArrayList<String>();
+
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+    LinkedList<String> popQuestions = new LinkedList<String>();
+    LinkedList<String> scienceQuestions = new LinkedList<String>();
+    LinkedList<String> sportsQuestions = new LinkedList<String>();
+    LinkedList<String> rockQuestions = new LinkedList<String>();
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
