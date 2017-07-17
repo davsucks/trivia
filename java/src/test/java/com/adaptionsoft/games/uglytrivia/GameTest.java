@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(HierarchicalContextRunner.class)
 public class GameTest {
@@ -100,6 +101,20 @@ public class GameTest {
                 assertTrue(aQuestionWasAsked());
             }
 
+            @Test
+            public void shouldPrintTheCurrentPlayer() {
+                game.roll(1);
+
+                verify(mockedPrinter).printLine("Vishal is the current player");
+            }
+
+            @Test
+            public void shouldPrintTheRoll() {
+                game.roll(5);
+
+                verify(mockedPrinter).printLine("They have rolled a 5");
+            }
+
             public class WhenInThePenaltyBox {
                 @Before
                 public void setup() {
@@ -132,6 +147,41 @@ public class GameTest {
                     game.roll(1);
 
                     assertTrue(aQuestionWasAsked());
+                }
+
+                @Test
+                public void shouldBeToldWhenTheyAreGettingOutOfThePenaltyBox() {
+                    game.roll(3);
+
+                    verify(mockedPrinter).printLine("Vishal is getting out of the penalty box");
+                }
+
+                @Test
+                public void shouldSayWhenPlayerIsNotGettingOutOfPenaltyBox() {
+                    game.roll(2);
+
+                    verify(mockedPrinter).printLine("Vishal is not getting out of the penalty box");
+                }
+
+                @Test
+                public void shouldPrintTheNewLocation() {
+                    game.roll(3);
+
+                    verify(mockedPrinter).printLine("Vishal's new location is 3");
+                }
+
+                @Test
+                public void shouldPrintTheCurrentCategory() {
+                    game.roll(1);
+
+                    verify(mockedPrinter).printLine("The category is Science");
+                }
+
+                @Test
+                public void shouldAskAScienceQuestion() {
+                    game.roll(1);
+
+                    verify(mockedPrinter).printLine("Science Question 0");
                 }
             }
         }
@@ -230,6 +280,18 @@ public class GameTest {
                         assertTrue(didPlayerNotWin);
                     }
                 }
+            }
+        }
+    }
+
+    public class Interface {
+        public class Add {
+            @Test
+            public void shouldPrintThatThePlayerWasAddedAndPlayerNumber() {
+                game.add("David");
+
+                verify(mockedPrinter).printLine("David was added");
+                verify(mockedPrinter).printLine("They are player number 1");
             }
         }
     }
