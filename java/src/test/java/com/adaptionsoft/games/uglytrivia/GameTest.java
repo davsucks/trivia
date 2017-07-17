@@ -190,6 +190,47 @@ public class GameTest {
         }
     }
 
+    public class WasCorrectlyAnswered {
+        public class WithOnePlayer extends OnePlayerSetup {
+            public class WhenInThePenaltyBox {
+                @Before
+                public void setup() {
+                    game.inPenaltyBox[FIRST_PLAYER_INDEX] = true;
+                }
+
+                public class WhenGettingOutOfThePenaltyBox {
+                    @Before
+                    public void setup() {
+                        game.isGettingOutOfPenaltyBox = true;
+                    }
+
+                    @Test
+                    public void shouldIncreaseTheNumberOfCoins() {
+                        game.wasCorrectlyAnswered();
+
+                        assertThat(game.purses[FIRST_PLAYER_INDEX], is(1));
+                    }
+
+                    @Test
+                    public void shouldReturnFalseIfThePlayerJustWon() {
+                        game.purses[FIRST_PLAYER_INDEX] = 5;
+
+                        boolean didPlayerNotWin = game.wasCorrectlyAnswered();
+
+                        assertFalse(didPlayerNotWin);
+                    }
+
+                    @Test
+                    public void shouldReturnTrueIfThePlayerDidNotWin() {
+                        boolean didPlayerNotWin = game.wasCorrectlyAnswered();
+
+                        assertTrue(didPlayerNotWin);
+                    }
+                }
+            }
+        }
+    }
+
     private boolean aQuestionWasAsked() {
         return game.popQuestions.size() != 50 ||
                 game.scienceQuestions.size() != 50 ||
