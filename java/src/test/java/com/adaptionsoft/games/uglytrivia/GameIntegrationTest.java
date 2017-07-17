@@ -13,12 +13,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(HierarchicalContextRunner.class)
-public class GameTest {
+public class GameIntegrationTest {
 
     private Game game;
     private Printer mockedPrinter;
+    private Player vishal;
+    private Player david;
 
     private final int FIRST_PLAYER_INDEX = 0;
     private final int MAX_NUMBER_OF_SPACES = 11;
@@ -33,7 +36,8 @@ public class GameTest {
     public class OnePlayerSetup {
         @Before
         public void setup() {
-            game.add("Vishal");
+            vishal = new Player("Vishal");
+            game.add(vishal);
         }
     }
 
@@ -42,7 +46,8 @@ public class GameTest {
         @Before
         public void setup() {
             super.setup();
-            game.add("David");
+            david = new Player("David");
+            game.add(david);
         }
     }
 
@@ -232,7 +237,9 @@ public class GameTest {
         public class Add {
             @Test
             public void shouldPrintThatThePlayerWasAddedAndPlayerNumber() {
-                game.add("David");
+                david = mock(Player.class);
+                when(david.toString()).thenReturn("David");
+                game.add(david);
 
                 verify(mockedPrinter).printLine("David was added");
                 verify(mockedPrinter).printLine("They are player number 1");

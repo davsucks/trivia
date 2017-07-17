@@ -6,7 +6,7 @@ public class Player {
     private String name;
     private int currentPlace;
 
-    Player(String name) {
+    public Player(String name) {
         this.coins = 0;
         this.inPenaltyBox = false;
         this.name = name;
@@ -36,5 +36,20 @@ public class Player {
             // normalize places
             currentPlace -= Game.MAXIMUM_SPACES + 1;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player) o;
+
+        return name != null ? name.equals(player.name) : player.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }

@@ -1,6 +1,7 @@
 package com.adaptionsoft.games.trivia.runner;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.Player;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,21 +27,21 @@ public class GameRunnerTest {
     public void shouldAddChet() {
         runner.start();
 
-        verify(mockedGame).add("Chet");
+        verify(mockedGame).add(new Player("Chet"));
     }
 
     @Test
     public void shouldAddPat() {
         runner.start();
 
-        verify(mockedGame).add("Pat");
+        verify(mockedGame).add(new Player("Pat"));
     }
 
     @Test
     public void shouldAddSue() {
         runner.start();
 
-        verify(mockedGame).add("Sue");
+        verify(mockedGame).add(new Player("Sue"));
     }
 
     @Test

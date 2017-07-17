@@ -30,8 +30,7 @@ public class Game {
     	}
     }
 
-	public void add(String playerName) {
-	    Player newPlayer = new Player(playerName);
+	public void add(Player newPlayer) {
 	    players.add(newPlayer);
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
