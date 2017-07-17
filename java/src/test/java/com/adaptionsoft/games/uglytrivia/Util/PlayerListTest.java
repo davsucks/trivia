@@ -39,4 +39,14 @@ public class PlayerListTest {
 
         assertThat(players.getCurrentPlayer(), is(david));
     }
+
+    @Test
+    public void shouldRotateToTheNextPlayer() {
+        players.add(david);
+        players.add(vishal);
+
+        players.rotatePlayers();
+
+        assertThat(players.getCurrentPlayer(), is(vishal));
+    }
 }

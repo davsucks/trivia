@@ -5,8 +5,7 @@ import com.adaptionsoft.games.uglytrivia.Player;
 import java.util.LinkedList;
 
 public class PlayerList {
-    // TODO: deque?
-    LinkedList<Player> players;
+    private LinkedList<Player> players;
 
     public PlayerList() {
         players = new LinkedList<Player>();
@@ -22,5 +21,10 @@ public class PlayerList {
 
     public Player getCurrentPlayer() {
         return players.getFirst();
+    }
+
+    public void rotatePlayers() {
+        Player firstPlayer = players.removeFirst();
+        players.addLast(firstPlayer);
     }
 }
