@@ -88,6 +88,7 @@ public class Game {
 	}
 	
 	private String currentCategory() {
+        // TODO: DRY this up with maths
 		if (places[currentPlayer] == 0) return "Pop";
 		if (places[currentPlayer] == 1) return "Science";
 		if (places[currentPlayer] == 2) return "Sports";
