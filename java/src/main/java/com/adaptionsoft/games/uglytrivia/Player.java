@@ -3,10 +3,12 @@ package com.adaptionsoft.games.uglytrivia;
 public class Player {
     private int coins;
     private boolean inPenaltyBox;
+    private String name;
 
-    public Player(int coins, boolean inPenaltyBox) {
+    public Player(int coins, boolean inPenaltyBox, String name) {
         this.coins = coins;
         this.inPenaltyBox = inPenaltyBox;
+        this.name = name;
     }
 
     Player() {
@@ -20,5 +22,10 @@ public class Player {
 
     boolean isInPenaltyBox() {
         return inPenaltyBox;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

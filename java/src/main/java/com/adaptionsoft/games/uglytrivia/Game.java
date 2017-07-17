@@ -5,8 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    private ArrayList<String> players = new ArrayList<String>();
-    private List<Player> playerList = new ArrayList<Player>();
+    private List<Player> players = new ArrayList<Player>();
     private Printer printer;
 
     int[] places = new int[6];
@@ -32,12 +31,13 @@ public class Game {
     }
 
 	public void add(String playerName) {
-	    players.add(playerName);
+	    Player newPlayer = new Player(0, false, playerName);
+	    players.add(newPlayer);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
-		printLine(playerName + " was added");
+		printLine(newPlayer + " was added");
 		printLine("They are player number " + players.size());
 	}
 
