@@ -17,7 +17,7 @@ public class Game {
     LinkedList<String> sportsQuestions = new LinkedList<String>();
     LinkedList<String> rockQuestions = new LinkedList<String>();
     
-    int currentPlayer = 0;
+    int currentPlayerIndex = 0;
     boolean isGettingOutOfPenaltyBox;
     
     public  Game(Printer printer){
@@ -46,38 +46,82 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		printLine(players.get(currentPlayer) + " is the current player");
+		printLine(players.get(currentPlayerIndex) + " is the current player");
 		printLine("They have rolled a " + roll);
 
-		if (inPenaltyBox[currentPlayer]) {
+		if (inPenaltyBox[currentPlayerIndex]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
-				printLine(players.get(currentPlayer) + " is getting out of the penalty box");
-				places[currentPlayer] = places[currentPlayer] + roll;
-				if (places[currentPlayer] > 11)
-					places[currentPlayer] = places[currentPlayer] - 12;
+				printLine(players.get(currentPlayerIndex) + " is getting out of the penalty box");
+				movePlayer(roll);
 
-				printLine(players.get(currentPlayer)
+				printLine(players.get(currentPlayerIndex)
 						+ "'s new location is "
-						+ places[currentPlayer]);
+						+ places[currentPlayerIndex]);
 				printLine("The category is " + currentCategory());
 				askQuestion();
 			} else {
-				printLine(players.get(currentPlayer) + " is not getting out of the penalty box");
+				printLine(players.get(currentPlayerIndex) + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
             }
 		} else {
-			places[currentPlayer] = places[currentPlayer] + roll;
-			if (places[currentPlayer] > 11)
-				places[currentPlayer] = places[currentPlayer] - 12;
+			movePlayer(roll);
 
-			printLine(players.get(currentPlayer)
+			printLine(players.get(currentPlayerIndex)
 					+ "'s new location is "
-					+ places[currentPlayer]);
+					+ places[currentPlayerIndex]);
 			printLine("The category is " + currentCategory());
 			askQuestion();
 		}
+	}
+
+	public boolean wasCorrectlyAnswered() {
+		if (inPenaltyBox[currentPlayerIndex]) {
+			if (isGettingOutOfPenaltyBox) {
+				printLine("Answer was correct!!!!");
+				purses[currentPlayerIndex]++;
+				printLine(players.get(currentPlayerIndex)
+						+ " now has "
+						+ purses[currentPlayerIndex]
+						+ " Gold Coins.");
+
+				boolean winner = didPlayerWin();
+				incrementCurrentPlayer();
+				
+				return winner;
+			} else {
+				incrementCurrentPlayer();
+				return true;
+			}
+		} else {
+			printLine("Answer was correct!!!!");
+			purses[currentPlayerIndex]++;
+			printLine(players.get(currentPlayerIndex)
+					+ " now has "
+					+ purses[currentPlayerIndex]
+					+ " Gold Coins.");
+
+			boolean winner = didPlayerWin();
+			incrementCurrentPlayer();
+			
+			return winner;
+		}
+	}
+
+	public boolean wrongAnswer() {
+		printLine("Question was incorrectly answered");
+		printLine(players.get(currentPlayerIndex)+ " was sent to the penalty box");
+		inPenaltyBox[currentPlayerIndex] = true;
+
+		incrementCurrentPlayer();
+		return true;
+	}
+
+	private void movePlayer(int roll) {
+		places[currentPlayerIndex] = places[currentPlayerIndex] + roll;
+		if (places[currentPlayerIndex] > 11)
+			places[currentPlayerIndex] = places[currentPlayerIndex] - 12;
 	}
 
 	private void askQuestion() {
@@ -90,69 +134,28 @@ public class Game {
 		if (currentCategory() == "Rock")
 			printLine(rockQuestions.removeFirst());
 	}
-	
+
 	private String currentCategory() {
-        // TODO: DRY this up with maths
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 10) return "Sports";
+		// TODO: DRY this up with maths
+		if (places[currentPlayerIndex] == 0) return "Pop";
+		if (places[currentPlayerIndex] == 1) return "Science";
+		if (places[currentPlayerIndex] == 2) return "Sports";
+		if (places[currentPlayerIndex] == 4) return "Pop";
+		if (places[currentPlayerIndex] == 5) return "Science";
+		if (places[currentPlayerIndex] == 6) return "Sports";
+		if (places[currentPlayerIndex] == 8) return "Pop";
+		if (places[currentPlayerIndex] == 9) return "Science";
+		if (places[currentPlayerIndex] == 10) return "Sports";
 		return "Rock";
 	}
 
-	public boolean wasCorrectlyAnswered() {
-		if (inPenaltyBox[currentPlayer]) {
-			if (isGettingOutOfPenaltyBox) {
-				printLine("Answer was correct!!!!");
-				purses[currentPlayer]++;
-				printLine(players.get(currentPlayer)
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
-
-				boolean winner = didPlayerWin();
-				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
-				
-				return winner;
-			} else {
-				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
-				return true;
-			}
-		} else {
-			printLine("Answer was correct!!!!");
-			purses[currentPlayer]++;
-			printLine(players.get(currentPlayer)
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
-
-			boolean winner = didPlayerWin();
-			currentPlayer++;
-			if (currentPlayer == players.size()) currentPlayer = 0;
-			
-			return winner;
-		}
-	}
-	
-	public boolean wrongAnswer() {
-		printLine("Question was incorrectly answered");
-		printLine(players.get(currentPlayer)+ " was sent to the penalty box");
-		inPenaltyBox[currentPlayer] = true;
-		
-		currentPlayer++;
-		if (currentPlayer == players.size()) currentPlayer = 0;
-		return true;
+	private void incrementCurrentPlayer() {
+		currentPlayerIndex++;
+		if (currentPlayerIndex == players.size()) currentPlayerIndex = 0;
 	}
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
+		return !(purses[currentPlayerIndex] == 6);
 	}
 
 	private void printLine(String lineToPrint) {

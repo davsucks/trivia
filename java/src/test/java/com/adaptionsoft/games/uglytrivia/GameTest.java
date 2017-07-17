@@ -169,7 +169,7 @@ public class GameTest {
         public class WithOnePlayer extends OnePlayerSetup {
             @Test
             public void shouldPutPlayerInPenaltyBoxWhenQuestionAnsweredIncorrectly() {
-                game.currentPlayer = FIRST_PLAYER_INDEX;
+                game.currentPlayerIndex = FIRST_PLAYER_INDEX;
 
                 game.wrongAnswer();
 
@@ -180,7 +180,7 @@ public class GameTest {
             public void shouldNotIncreaseCurrentPlayerIfThereIsOnlyOnePlayer() {
                 game.wrongAnswer();
 
-                assertThat(game.currentPlayer, is(0));
+                assertThat(game.currentPlayerIndex, is(0));
             }
         }
 
@@ -189,7 +189,7 @@ public class GameTest {
             public void shouldIncreasePlayerCountWhenCallingWrongAnswer() {
                 game.wrongAnswer();
 
-                assertThat(game.currentPlayer, is(1));
+                assertThat(game.currentPlayerIndex, is(1));
             }
         }
     }
