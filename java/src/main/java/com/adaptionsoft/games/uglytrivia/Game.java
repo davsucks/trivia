@@ -31,7 +31,7 @@ public class Game {
     }
 
 	public void add(String playerName) {
-	    Player newPlayer = new Player(0, false, playerName);
+	    Player newPlayer = new Player(playerName);
 	    players.add(newPlayer);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
