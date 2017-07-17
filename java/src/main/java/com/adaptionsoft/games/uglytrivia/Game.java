@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<String> players = new ArrayList<String>();
+    private Printer printer;
 
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -18,8 +19,9 @@ public class Game {
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
     
-    public  Game(){
-    	for (int i = 0; i < 50; i++) {
+    public  Game(Printer printer){
+		this.printer = printer;
+		for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast("Science Question " + i);
 			sportsQuestions.addLast("Sports Question " + i);

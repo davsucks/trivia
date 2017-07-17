@@ -2,11 +2,11 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.io.PrintStream;
 
-class Printer {
+public class Printer {
     private PrintStream printStream;
 
 
-    Printer(PrintStream printStream) {
+    public Printer(PrintStream printStream) {
         this.printStream = printStream;
     }
 

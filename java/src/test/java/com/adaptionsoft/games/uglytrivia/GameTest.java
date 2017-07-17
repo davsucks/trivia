@@ -11,18 +11,21 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 
 @RunWith(HierarchicalContextRunner.class)
 public class GameTest {
 
     private Game game;
+    private Printer mockedPrinter;
 
     private final int FIRST_PLAYER_INDEX = 0;
     private final int MAX_NUMBER_OF_SPACES = 11;
 
     @Before
     public void given() throws Exception {
-        game = new Game();
+        mockedPrinter = mock(Printer.class);
+        game = new Game(mockedPrinter);
     }
 
     @Ignore("not a test")
@@ -44,7 +47,7 @@ public class GameTest {
 
     @Test
     public void shouldAddFiftyQuestions() {
-        Game game = new Game();
+        Game game = new Game(mockedPrinter);
 
         assertEquals(game.popQuestions.size(), 50);
         assertEquals(game.scienceQuestions.size(), 50);
