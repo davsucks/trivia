@@ -6,20 +6,20 @@ import java.util.Random;
 
 public class GameRunner {
 
-	private static boolean notAWinner;
-	private Game game;
+    private Game game;
     private final Random random;
 
-    public GameRunner(Game game, Random random) {
+    GameRunner(Game game, Random random) {
 	    this.game = game;
         this.random = random;
     }
 
-    public void start() {
+    void start() {
         game.add("Chet");
         game.add("Pat");
         game.add("Sue");
 
+        boolean notAWinner;
         do {
             game.roll(random.nextInt(5) + 1);
 
