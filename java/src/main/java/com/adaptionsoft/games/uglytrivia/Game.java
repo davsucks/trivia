@@ -124,7 +124,7 @@ public class Game {
 				return true;
 			}
 		} else {
-			printLine("Answer was corrent!!!!");
+			printLine("Answer was correct!!!!");
 			purses[currentPlayer]++;
 			printLine(players.get(currentPlayer)
 					+ " now has "
