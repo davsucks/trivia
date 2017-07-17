@@ -143,15 +143,6 @@ public class GameIntegrationTest {
         }
     }
 
-    public class Purses {
-        public class WithOnePlayer extends OnePlayerSetup {
-            @Test
-            public void shouldStartPlayerWithEmptyPurse() {
-                assertEquals(game.purses[FIRST_PLAYER_INDEX], 0);
-            }
-        }
-    }
-
     public class InPenaltyBox {
         public class WithOnePlayer extends OnePlayerSetup {
             @Test

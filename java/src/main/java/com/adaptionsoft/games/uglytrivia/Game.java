@@ -9,7 +9,6 @@ public class Game {
 	private PlayerList players = new PlayerList();
     private Printer printer;
 
-    int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
     LinkedList<String> popQuestions = new LinkedList<String>();
@@ -20,8 +19,10 @@ public class Game {
     int currentPlayerIndex = 0;
     boolean isGettingOutOfPenaltyBox;
 
-	public  Game(Printer printer){
+	public  Game(Printer printer, PlayerList playerList){
 		this.printer = printer;
+		players = playerList;
+
 		for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast("Science Question " + i);
@@ -32,7 +33,6 @@ public class Game {
 
 	public void add(Player newPlayer) {
 	    players.add(newPlayer);
-	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
 		printLine(newPlayer + " was added");
@@ -79,10 +79,10 @@ public class Game {
 		if (inPenaltyBox[currentPlayerIndex]) {
 			if (isGettingOutOfPenaltyBox) {
 				printLine("Answer was correct!!!!");
-				purses[currentPlayerIndex]++;
+				players.getCurrentPlayer().addCoin();
 				printLine(players.getCurrentPlayer()
 						+ " now has "
-						+ purses[currentPlayerIndex]
+						+ players.getCurrentPlayer().getCoins()
 						+ " Gold Coins.");
 
 				boolean winner = didPlayerWin();
@@ -95,10 +95,10 @@ public class Game {
 			}
 		} else {
 			printLine("Answer was correct!!!!");
-			purses[currentPlayerIndex]++;
+			players.getCurrentPlayer().addCoin();
 			printLine(players.getCurrentPlayer()
 					+ " now has "
-					+ purses[currentPlayerIndex]
+					+ players.getCurrentPlayer().getCoins()
 					+ " Gold Coins.");
 
 			boolean winner = didPlayerWin();
@@ -153,7 +153,7 @@ public class Game {
 	}
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayerIndex] == 6);
+		return !(players.getCurrentPlayer().getCoins() == 6);
 	}
 
 	private void printLine(String lineToPrint) {
