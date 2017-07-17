@@ -263,6 +263,27 @@ public class GameTest {
                     verify(mockedPrinter).printLine("They have rolled a 5");
                 }
 
+                @Test
+                public void shouldPrintTheNewLocation() {
+                    game.roll(1);
+
+                    verify(mockedPrinter).printLine("Vishal's new location is 1");
+                }
+
+                @Test
+                public void shouldPrintTheNewCategory() {
+                    game.roll(1);
+
+                    verify(mockedPrinter).printLine("The category is Science");
+                }
+
+                @Test
+                public void shouldAskAScienceQuestion() {
+                    game.roll(1);
+
+                    verify(mockedPrinter).printLine("Science Question 0");
+                }
+
                 public class WhenInThePenaltyBox {
                     @Before
                     public void setup() {
