@@ -2,9 +2,11 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
     private ArrayList<String> players = new ArrayList<String>();
+    private List<Player> playerList = new ArrayList<Player>();
     private Printer printer;
 
     int[] places = new int[6];
