@@ -43,4 +43,19 @@ public class PlayerTest {
 
         assertThat(player.getCurrentPlace(), is(0));
     }
+
+    @Test
+    public void shouldAddCoinsToThePurse() {
+        player.addCoin();
+
+        assertThat(player.getCoins(), is(1));
+    }
+
+    @Test
+    public void shouldAddTwoCoinsToThePurse() {
+        player.addCoin();
+        player.addCoin();
+
+        assertThat(player.getCoins(), is(2));
+    }
 }
