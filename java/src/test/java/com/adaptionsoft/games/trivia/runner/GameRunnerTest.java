@@ -4,18 +4,21 @@ import com.adaptionsoft.games.uglytrivia.Game;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.Random;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class GameRunnerTest {
     Game mockedGame;
+    Random mockedRandom;
     GameRunner runner;
 
     @Before
     public void setup() {
         mockedGame = mock(Game.class);
-        runner = new GameRunner(mockedGame);
+        mockedRandom = mock(Random.class);
+        runner = new GameRunner(mockedGame, mockedRandom);
     }
 
     @Test
