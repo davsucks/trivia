@@ -11,9 +11,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class GameRunnerTest {
-    Game mockedGame;
-    Random mockedRandom;
-    GameRunner runner;
+    private Game mockedGame;
+    private Random mockedRandom;
+    private GameRunner runner;
 
     @Before
     public void setup() {
