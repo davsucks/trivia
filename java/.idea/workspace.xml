@@ -46,18 +46,11 @@
           <file leaf-file-name="GameTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/com/adaptionsoft/games/uglytrivia/GameTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+                <state relative-caret-position="201">
+                  <caret line="96" column="16" lean-forward="false" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
                   <folding>
-                    <element signature="e#820#821#0" expanded="true" />
-                    <element signature="e#862#863#0" expanded="true" />
-                    <element signature="class#HowManyPlayers#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#Roll#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#Places#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#Purses#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#InPenaltyBox#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#WrongAnswer#0;class#GameTest#0" expanded="false" />
-                    <element signature="class#Add#0;class#GameTest#0" expanded="false" />
+                    <element signature="e#5701#5702#0" expanded="true" />
+                    <element signature="e#5744#5745#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -70,8 +63,24 @@
           <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/adaptionsoft/games/uglytrivia/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-468">
-                  <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+                <state relative-caret-position="1140">
+                  <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+                  <folding>
+                    <element signature="method#Game#0;class#Game#0" expanded="false" />
+                    <element signature="method#createRockQuestion#0;class#Game#0" expanded="false" />
+                    <element signature="method#add#0;class#Game#0" expanded="false" />
+                    <element signature="method#wasCorrectlyAnswered#0;class#Game#0" expanded="false" />
+                    <element signature="method#wrongAnswer#0;class#Game#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameRunner.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/adaptionsoft/games/trivia/runner/GameRunner.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -80,6 +89,14 @@
         </leaf>
       </split-second>
     </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>main</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -449,6 +466,38 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralScala</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Scala</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -499,7 +548,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="FullScreen" value="true" />
     <property name="add_unversioned_files" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/com/adaptionsoft/games" />
@@ -543,58 +592,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="GameTest.shouldIncreasePlayerCountWhenCallingWrongAnswer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.adaptionsoft.games.uglytrivia.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="uglytrivia_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.adaptionsoft.games.uglytrivia" />
-      <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest" />
-      <option name="METHOD_NAME" value="shouldIncreasePlayerCountWhenCallingWrongAnswer" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="GameTest.shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.adaptionsoft.games.uglytrivia.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="uglytrivia_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.adaptionsoft.games.uglytrivia" />
-      <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest" />
-      <option name="METHOD_NAME" value="shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="GameTest$WrongAnswer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -609,6 +606,84 @@
       <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest$WrongAnswer" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnEvenRoll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adaptionsoft.games.uglytrivia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="uglytrivia_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adaptionsoft.games.uglytrivia" />
+      <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox" />
+      <option name="METHOD_NAME" value="shouldGetOutOfThePenaltyBoxOnEvenRoll" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnAnOddRoll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adaptionsoft.games.uglytrivia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="uglytrivia_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adaptionsoft.games.uglytrivia" />
+      <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox" />
+      <option name="METHOD_NAME" value="shouldGetOutOfThePenaltyBoxOnAnOddRoll" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.adaptionsoft.games.uglytrivia.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="uglytrivia_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.adaptionsoft.games.uglytrivia" />
+      <option name="MAIN_CLASS_NAME" value="com.adaptionsoft.games.uglytrivia.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox" />
+      <option name="METHOD_NAME" value="shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -893,18 +968,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.GameTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.GameTest.shouldIncreasePlayerCountWhenCallingWrongAnswer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GameTest.shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest$WrongAnswer" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GameTest$WrongAnswer" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnEvenRoll" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnAnOddRoll" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.GameTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GameTest$WrongAnswer" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GameTest.shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest.shouldIncreasePlayerCountWhenCallingWrongAnswer" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnAnOddRoll" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnEvenRoll" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GameTest$WrongAnswer" />
       </list>
     </recent_temporary>
   </component>
@@ -931,35 +1008,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GameTest - 2017.07.12 at 17h 19m 07s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2017.07.12 at 17h 25m 11s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2017.07.12 at 17h 25m 52s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2017.07.12 at 17h 27m 16s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2017.07.15 at 13h 21m 12s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GameTest - 2017.07.15 at 13h 26m 23s.xml">
       <configuration name="GameTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="GameTest - 2017.07.15 at 13h 27m 33s.xml">
       <configuration name="GameTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameTest$WrongAnswer - 2017.07.15 at 13h 26m 18s.xml">
-      <configuration name="GameTest$WrongAnswer" configurationId="JUnit" />
+    <history-entry file="GameTest - 2017.07.17 at 10h 07m 56s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameTest_shouldIncreasePlayerCountWhenCallingWrongAnswer - 2017.07.12 at 17h 13m 04s.xml">
-      <configuration name="GameTest.shouldIncreasePlayerCountWhenCallingWrongAnswer" configurationId="JUnit" />
+    <history-entry file="GameTest - 2017.07.17 at 10h 21m 45s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GameTest_shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces - 2017.07.12 at 17h 18m 59s.xml">
-      <configuration name="GameTest.shouldWrapBackToZeroWhenRollingMoreThanTheMaxNumberOfSpaces" configurationId="JUnit" />
+    <history-entry file="GameTest - 2017.07.17 at 10h 27m 56s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2017.07.17 at 10h 31m 54s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox_shouldGetOutOfThePenaltyBoxOnAnOddRoll - 2017.07.17 at 10h 17m 49s.xml">
+      <configuration name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnAnOddRoll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox_shouldGetOutOfThePenaltyBoxOnAnOddRoll - 2017.07.17 at 10h 20m 23s.xml">
+      <configuration name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnAnOddRoll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox_shouldGetOutOfThePenaltyBoxOnEvenRoll - 2017.07.17 at 10h 16m 55s.xml">
+      <configuration name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldGetOutOfThePenaltyBoxOnEvenRoll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox_shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll - 2017.07.17 at 10h 21m 34s.xml">
+      <configuration name="GameTest$Roll$WithOnePlayer$WhenInThePenaltyBox.shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -975,13 +1052,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3097015" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25608012" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -995,7 +1073,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1015,15 +1092,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="class#HowManyPlayers#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Roll#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Places#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Purses#0;class#GameTest#0" expanded="false" />
-            <element signature="class#InPenaltyBox#0;class#GameTest#0" expanded="false" />
-            <element signature="class#WrongAnswer#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Add#0;class#GameTest#0" expanded="false" />
+            <element signature="e#5701#5702#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,28 +1121,35 @@
     <entry file="file://$PROJECT_DIR$/src/main/com/adaptionsoft/games/uglytrivia/Game.java" />
     <entry file="file://$PROJECT_DIR$/src/main/com/adaptionsoft/games/trivia/runner/GameRunner.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/adaptionsoft/games/trivia/SomeTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/adaptionsoft/games/trivia/runner/GameRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/adaptionsoft/games/uglytrivia/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="1140">
+          <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+          <folding>
+            <element signature="method#Game#0;class#Game#0" expanded="false" />
+            <element signature="method#createRockQuestion#0;class#Game#0" expanded="false" />
+            <element signature="method#add#0;class#Game#0" expanded="false" />
+            <element signature="method#wasCorrectlyAnswered#0;class#Game#0" expanded="false" />
+            <element signature="method#wrongAnswer#0;class#Game#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/adaptionsoft/games/uglytrivia/GameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="201">
+          <caret line="96" column="16" lean-forward="false" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
           <folding>
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="class#HowManyPlayers#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Roll#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Places#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Purses#0;class#GameTest#0" expanded="false" />
-            <element signature="class#InPenaltyBox#0;class#GameTest#0" expanded="false" />
-            <element signature="class#WrongAnswer#0;class#GameTest#0" expanded="false" />
-            <element signature="class#Add#0;class#GameTest#0" expanded="false" />
+            <element signature="e#5701#5702#0" expanded="true" />
+            <element signature="e#5744#5745#0" expanded="true" />
           </folding>
         </state>
       </provider>

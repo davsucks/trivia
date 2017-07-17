@@ -89,6 +89,48 @@ public class GameTest {
 
                 assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
             }
+
+            @Test
+            public void shouldAskAQuestion() {
+                game.roll(2);
+
+                assertTrue(aQuestionWasAsked());
+            }
+
+            public class WhenInThePenaltyBox {
+                @Before
+                public void setup() {
+                    game.inPenaltyBox[FIRST_PLAYER_INDEX] = true;
+                }
+
+                @Test
+                public void shouldBeGettingOutOfThePenaltyBoxOnAnOddRoll() {
+                    game.roll(1);
+
+                    assertThat(game.isGettingOutOfPenaltyBox, is(true));
+                }
+
+                @Test
+                public void shouldNotBeGettingOutOfThePenaltyBoxOnAnEvenRoll() {
+                    game.roll(2);
+
+                    assertThat(game.isGettingOutOfPenaltyBox, is(false));
+                }
+
+                @Test
+                public void shouldNotBeAskedAQuestionOnAnEvenRoll() {
+                    game.roll(2);
+
+                    assertTrue(noQuestionsWereAsked());
+                }
+
+                @Test
+                public void shouldAsAQuestionOnAnOddRoll() {
+                    game.roll(1);
+
+                    assertTrue(aQuestionWasAsked());
+                }
+            }
         }
     }
 
@@ -98,7 +140,6 @@ public class GameTest {
            public void shouldStartPlayerFromPlaceZero() {
                assertThat(game.places[FIRST_PLAYER_INDEX], is(0));
            }
-
        }
     }
 
@@ -147,5 +188,16 @@ public class GameTest {
                 assertThat(game.currentPlayer, is(1));
             }
         }
+    }
+
+    private boolean aQuestionWasAsked() {
+        return game.popQuestions.size() != 50 ||
+                game.scienceQuestions.size() != 50 ||
+                game.sportsQuestions.size() != 50 ||
+                game.rockQuestions.size() != 50;
+    }
+
+    private boolean noQuestionsWereAsked() {
+        return !aQuestionWasAsked();
     }
 }
