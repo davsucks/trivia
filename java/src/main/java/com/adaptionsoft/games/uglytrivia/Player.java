@@ -30,7 +30,11 @@ public class Player {
         return currentPlace;
     }
 
-    void moveTo(int place) {
-        this.currentPlace = place;
+    void moveTo(int roll) {
+        currentPlace += roll;
+        if (currentPlace > Game.MAXIMUM_SPACES) {
+            // normalize places
+            currentPlace -= Game.MAXIMUM_SPACES + 1;
+        }
     }
 }

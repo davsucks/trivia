@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    private List<Player> players = new ArrayList<Player>();
+	final static int MAXIMUM_SPACES = 11;
+	private List<Player> players = new ArrayList<Player>();
     private Printer printer;
 
-    int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
@@ -19,8 +19,8 @@ public class Game {
     
     int currentPlayerIndex = 0;
     boolean isGettingOutOfPenaltyBox;
-    
-    public  Game(Printer printer){
+
+	public  Game(Printer printer){
 		this.printer = printer;
 		for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
@@ -33,7 +33,6 @@ public class Game {
 	public void add(String playerName) {
 	    Player newPlayer = new Player(playerName);
 	    players.add(newPlayer);
-	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
@@ -55,25 +54,25 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 
 				printLine(currentPlayer + " is getting out of the penalty box");
-				movePlayer(roll);
+				movePlayer(currentPlayer, roll);
 
 				printLine(currentPlayer
 						+ "'s new location is "
-						+ places[currentPlayerIndex]);
-				printLine("The category is " + currentCategory());
-				askQuestion();
+						+ currentPlayer.getCurrentPlace());
+				printLine("The category is " + currentCategory(currentPlayer));
+				askQuestion(currentPlayer);
 			} else {
 				printLine(currentPlayer + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
             }
 		} else {
-			movePlayer(roll);
+			movePlayer(currentPlayer, roll);
 
 			printLine(currentPlayer
 					+ "'s new location is "
-					+ places[currentPlayerIndex]);
-			printLine("The category is " + currentCategory());
-			askQuestion();
+					+ currentPlayer.getCurrentPlace());
+			printLine("The category is " + currentCategory(currentPlayer));
+			askQuestion(currentPlayer);
 		}
 	}
 
@@ -119,34 +118,32 @@ public class Game {
 		return true;
 	}
 
-	private void movePlayer(int roll) {
-		places[currentPlayerIndex] = places[currentPlayerIndex] + roll;
-		if (places[currentPlayerIndex] > 11)
-			places[currentPlayerIndex] = places[currentPlayerIndex] - 12;
+	private void movePlayer(Player currentPlayer, int roll) {
+		currentPlayer.moveTo(roll);
 	}
 
-	private void askQuestion() {
-		if (currentCategory() == "Pop")
+	private void askQuestion(Player currentPlayer) {
+		if (currentCategory(currentPlayer) == "Pop")
 			printLine(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (currentCategory(currentPlayer) == "Science")
 			printLine(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (currentCategory(currentPlayer) == "Sports")
 			printLine(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
+		if (currentCategory(currentPlayer) == "Rock")
 			printLine(rockQuestions.removeFirst());
 	}
 
-	private String currentCategory() {
+	private String currentCategory(Player currentPlayer) {
 		// TODO: DRY this up with maths
-		if (places[currentPlayerIndex] == 0) return "Pop";
-		if (places[currentPlayerIndex] == 1) return "Science";
-		if (places[currentPlayerIndex] == 2) return "Sports";
-		if (places[currentPlayerIndex] == 4) return "Pop";
-		if (places[currentPlayerIndex] == 5) return "Science";
-		if (places[currentPlayerIndex] == 6) return "Sports";
-		if (places[currentPlayerIndex] == 8) return "Pop";
-		if (places[currentPlayerIndex] == 9) return "Science";
-		if (places[currentPlayerIndex] == 10) return "Sports";
+		if (currentPlayer.getCurrentPlace() == 0) return "Pop";
+		if (currentPlayer.getCurrentPlace() == 1) return "Science";
+		if (currentPlayer.getCurrentPlace() == 2) return "Sports";
+		if (currentPlayer.getCurrentPlace() == 4) return "Pop";
+		if (currentPlayer.getCurrentPlace() == 5) return "Science";
+		if (currentPlayer.getCurrentPlace() == 6) return "Sports";
+		if (currentPlayer.getCurrentPlace() == 8) return "Pop";
+		if (currentPlayer.getCurrentPlace() == 9) return "Science";
+		if (currentPlayer.getCurrentPlace() == 10) return "Sports";
 		return "Rock";
 	}
 

@@ -36,4 +36,11 @@ public class PlayerTest {
 
         assertThat(player.getCurrentPlace(), is(3));
     }
+
+    @Test
+    public void shouldNotMovePlayerPastTheMaximumNumberOfSpaces() {
+        player.moveTo(Game.MAXIMUM_SPACES + 1);
+
+        assertThat(player.getCurrentPlace(), is(0));
+    }
 }
