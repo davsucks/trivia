@@ -1,12 +1,12 @@
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.ArrayList;
+import com.adaptionsoft.games.uglytrivia.Util.PlayerList;
+
 import java.util.LinkedList;
-import java.util.List;
 
 public class Game {
 	final static int MAXIMUM_SPACES = 11;
-	private List<Player> players = new ArrayList<Player>();
+	private PlayerList players = new PlayerList();
     private Printer printer;
 
     int[] purses  = new int[6];
@@ -44,7 +44,7 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		Player currentPlayer = players.get(currentPlayerIndex);
+		Player currentPlayer = players.getCurrentPlayer();
 		printLine(currentPlayer + " is the current player");
 		printLine("They have rolled a " + roll);
 
@@ -80,7 +80,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				printLine("Answer was correct!!!!");
 				purses[currentPlayerIndex]++;
-				printLine(players.get(currentPlayerIndex)
+				printLine(players.getCurrentPlayer()
 						+ " now has "
 						+ purses[currentPlayerIndex]
 						+ " Gold Coins.");
@@ -96,7 +96,7 @@ public class Game {
 		} else {
 			printLine("Answer was correct!!!!");
 			purses[currentPlayerIndex]++;
-			printLine(players.get(currentPlayerIndex)
+			printLine(players.getCurrentPlayer()
 					+ " now has "
 					+ purses[currentPlayerIndex]
 					+ " Gold Coins.");
@@ -110,7 +110,7 @@ public class Game {
 
 	public boolean wrongAnswer() {
 		printLine("Question was incorrectly answered");
-		printLine(players.get(currentPlayerIndex)+ " was sent to the penalty box");
+		printLine(players.getCurrentPlayer() + " was sent to the penalty box");
 		inPenaltyBox[currentPlayerIndex] = true;
 
 		incrementCurrentPlayer();
@@ -147,6 +147,7 @@ public class Game {
 	}
 
 	private void incrementCurrentPlayer() {
+		players.rotatePlayers();
 		currentPlayerIndex++;
 		if (currentPlayerIndex == players.size()) currentPlayerIndex = 0;
 	}
