@@ -8,6 +8,7 @@ import java.util.Random;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class GameRunnerTest {
     Game mockedGame;
@@ -40,5 +41,25 @@ public class GameRunnerTest {
         runner.start();
 
         verify(mockedGame).add("Sue");
+    }
+
+    @Test
+    public void shouldHaveOneInTenChanceOfBeingWrong() {
+        when(mockedRandom.nextInt(9)).thenReturn(7);
+
+        runner.start();
+
+        verify(mockedGame).wrongAnswer();
+    }
+
+    @Test
+    public void shouldTranslateRandomToDieRoll() {
+        int randomReturnValue = 4;
+        int translatedDieValue = 5;
+        when(mockedRandom.nextInt(5)).thenReturn(randomReturnValue);
+
+        runner.start();
+
+        verify(mockedGame).roll(translatedDieValue);
     }
 }
