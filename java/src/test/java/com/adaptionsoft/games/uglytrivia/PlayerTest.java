@@ -29,4 +29,11 @@ public class PlayerTest {
     public void shouldStartOnPlaceZeroByDefault() {
         assertThat(player.getCurrentPlace(), is(0));
     }
+
+    @Test
+    public void shouldMovePlayerToTheDesiredPlace() {
+        player.moveTo(3);
+
+        assertThat(player.getCurrentPlace(), is(3));
+    }
 }

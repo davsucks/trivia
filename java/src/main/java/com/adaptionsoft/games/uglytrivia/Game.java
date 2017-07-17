@@ -46,29 +46,30 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		printLine(players.get(currentPlayerIndex) + " is the current player");
+		Player currentPlayer = players.get(currentPlayerIndex);
+		printLine(currentPlayer + " is the current player");
 		printLine("They have rolled a " + roll);
 
 		if (inPenaltyBox[currentPlayerIndex]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
-				printLine(players.get(currentPlayerIndex) + " is getting out of the penalty box");
+				printLine(currentPlayer + " is getting out of the penalty box");
 				movePlayer(roll);
 
-				printLine(players.get(currentPlayerIndex)
+				printLine(currentPlayer
 						+ "'s new location is "
 						+ places[currentPlayerIndex]);
 				printLine("The category is " + currentCategory());
 				askQuestion();
 			} else {
-				printLine(players.get(currentPlayerIndex) + " is not getting out of the penalty box");
+				printLine(currentPlayer + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
             }
 		} else {
 			movePlayer(roll);
 
-			printLine(players.get(currentPlayerIndex)
+			printLine(currentPlayer
 					+ "'s new location is "
 					+ places[currentPlayerIndex]);
 			printLine("The category is " + currentCategory());

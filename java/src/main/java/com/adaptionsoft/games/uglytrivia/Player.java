@@ -6,13 +6,6 @@ public class Player {
     private String name;
     private int currentPlace;
 
-    public Player(int coins, boolean inPenaltyBox, String name, int currentPlace) {
-        this.coins = coins;
-        this.inPenaltyBox = inPenaltyBox;
-        this.name = name;
-        this.currentPlace = currentPlace;
-    }
-
     Player(String name) {
         this.coins = 0;
         this.inPenaltyBox = false;
@@ -35,5 +28,9 @@ public class Player {
 
     int getCurrentPlace() {
         return currentPlace;
+    }
+
+    void moveTo(int place) {
+        this.currentPlace = place;
     }
 }
